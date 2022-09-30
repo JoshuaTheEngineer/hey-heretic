@@ -13,5 +13,25 @@
         "name": "nestorianism",
         "meaning": "Jesus is two “persons” - Jesus the human son of Mary and Jesus the divine Son of God.",
         "church": "Christ is one person with two natures: divine nature and human nature."
+    },
+    {
+        "name": "monophysitism",
+        "meaning": "Jesus is fully God but not fully man",
+        "church": "Christ has two natures: divine nature and human nature"
+    },
+    {
+        "name": "monothelitism",
+        "meaning": "Jesus has only one will",
+        "church": "Christ has two wills: a divine will and a human will belonging to His human soul."
+    },
+    {
+        "name": "iconoclasm",
+        "meaning": "Images are idolatrous",
+        "church": "The use of Christian images since Christ became visible through the incarnation."
+    },
+    {
+        "name": "pelagianism",
+        "meaning": "Denies there's original sin and teaches that grace is not necessary for salvation.",
+        "church": "We are born in original sin and saved by grace through faith and works."
     }
 ]
