@@ -1,18 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar, Button, Alert } from "react-native";
 
-import beliefs from './src/data/beliefs.json';
+import BELIEFS from './src/data/beliefs.json';
+import HERESIES from './src/data/heresies.json';
 
 const Item = ({ title }) => (
-  <View style={styles.item}>
-    <Text style={styles.title}>{title}</Text>
+  <View style={styles.item}>    
+    <Button
+      title={title}
+      onPress={() => {
+        let msg;
+        if (HERESIES[title]) {
+          msg = `HERESY: ${HERESIES[title]["meaning"]}\nCHURCH: ${HERESIES[title]["church"]}`;
+        } else {
+          msg = title;
+        }
+        return Alert.alert(msg);
+      }}
+    />
   </View>
 )
 
 const App = () => (
   <SafeAreaView style={styles.container}>
     <SectionList
-      sections={beliefs}
+      sections={BELIEFS}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => <Item title={item} />}
       renderSectionHeader={({ section: { title } }) => (
