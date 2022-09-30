@@ -1,14 +1,17 @@
-{
-    "docetism": {
+[
+    {
+        "name" : "docetism",
         "meaning": "Jesus only appeared to be human.",
         "church": "Christ if fully God and fully man."
     },
-    "arianism": {
+    {
+        "name": "arianism",
         "meaning": "Jesus not fully God.",
         "church": "Christ if fully God and fullyman."
     },
-    "nestorianism": {
+    {
+        "name": "nestorianism",
         "meaning": "Jesus is two “persons” - Jesus the human son of Mary and Jesus the divine Son of God.",
         "church": "Christ is one person with two natures: divine nature and human nature."
     }
-}
+]
