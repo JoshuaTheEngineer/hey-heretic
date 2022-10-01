@@ -1,58 +1,25 @@
 import React from "react";
-import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar, Button, Alert } from "react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import BELIEFS from './src/data/beliefs.json';
-import HERESIES from './src/data/heresies.json';
+import IndexScreen from "./src/screens/screen-beliefs-index";
+import HeresyScreen from "./src/screens/screen-heresy";
+import ChurchScreen from "./src/screens/screen-church";
 
-const Item = ({ title }) => (
-  <View style={styles.item}>    
-    <Button
-      title={title}
-      onPress={() => {
-        let msg;
-        if (HERESIES[title]) {
-          msg = `HERESY: ${HERESIES[title]["meaning"]}\nCHURCH: ${HERESIES[title]["church"]}`;
-        } else {
-          msg = title;
-        }
-        return Alert.alert(msg);
-      }}
-    />
-  </View>
-)
+const Stack = createNativeStackNavigator();
 
 const App = () => (
-  <SafeAreaView style={styles.container}>
-    <SectionList
-      sections={BELIEFS}
-      keyExtractor={(item, index) => item + index}
-      renderItem={({ item }) => <Item title={item} />}
-      renderSectionHeader={({ section: { title } }) => (
-        <Text style={styles.header}>{title}</Text>
-      )}
-    />
-  </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen 
+          name="Index"
+          component={IndexScreen}
+          options={{ title: 'Index' }}
+        />
+        <Stack.Screen name="Heresy" component={HeresyScreen} />
+        <Stack.Screen name="Church" component={ChurchScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
 )
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  item: {
-    backgroundColor: "#f9c2ff",
-    padding: 20,
-    marginVertical: 8
-  },
-  header: {
-    fontSize: 32,
-    backgroundColor: "#fff"
-  },
-  title: {
-    fontSize: 24
-  }
-});
 
 export default App;
