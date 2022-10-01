@@ -1,8 +1,19 @@
 import React from "react";
 import { StyleSheet, Text, View, SafeAreaView, SectionList, StatusBar, Button, Alert } from "react-native";
 
-import BELIEFS from './src/data/beliefs.json';
+import CHURCH from './src/data/church-teachings-on-jesus.json';
 import HERESIES from './src/data/heresies.json';
+
+const DATA = [
+  {
+    "title" : "Heresies",
+    "data" : Object.keys(HERESIES)
+  },
+  {
+    "title" : "Catholic Church Teachings",
+    "data" : Object.keys(CHURCH)
+  }
+]
 
 const Item = ({ title }) => (
   <View style={styles.item}>    
@@ -12,6 +23,8 @@ const Item = ({ title }) => (
         let msg;
         if (HERESIES[title]) {
           msg = `HERESY: ${HERESIES[title]["meaning"]}\nCHURCH: ${HERESIES[title]["church"]}`;
+        } else if (CHURCH[title]) {
+          msg = `TEACHING: ${CHURCH[title]["meaning"]}\nCHURCH: ${CHURCH[title]["church"]}`;
         } else {
           msg = title;
         }
@@ -24,7 +37,7 @@ const Item = ({ title }) => (
 const App = () => (
   <SafeAreaView style={styles.container}>
     <SectionList
-      sections={BELIEFS}
+      sections={DATA}
       keyExtractor={(item, index) => item + index}
       renderItem={({ item }) => <Item title={item} />}
       renderSectionHeader={({ section: { title } }) => (
