@@ -1,4 +1,4 @@
-import { SafeAreaView, StyleSheet, Text, View, SectionList, Button, Alert } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, SectionList, Button } from "react-native";
 
 import CHURCH from '../data/church-teachings-on-jesus.json';
 import HERESIES from '../data/heresies.json';
@@ -14,21 +14,17 @@ const DATA = [
     }
 ]
 
-const Item = ({ title }) => {
+const Item = ({ title, navigation }) => {
     return (
       <View style={styles.item}>    
         <Button
           title={title}
           onPress={() => {
-            let msg;
             if (HERESIES[title]) {
-              msg = `HERESY: ${HERESIES[title]["meaning"]}\nCHURCH: ${HERESIES[title]["church"]}`;
-            } else if (CHURCH[title]) {
-              msg = `TEACHING: ${CHURCH[title]["meaning"]}\nCHURCH: ${CHURCH[title]["church"]}`;
+                return navigation.navigate('Heresy', { meaning: HERESIES[title]["meaning"], church: HERESIES[title]["church"] })
             } else {
-              msg = title;
+                return navigation.navigate('Church', { meaning: CHURCH[title]["meaning"], church: CHURCH[title]["church"] })
             }
-            return Alert.alert(msg);
           }}
         />
       </View>
@@ -41,9 +37,9 @@ const IndexScreen = ({ navigation }) => {
             <SectionList
                 sections={DATA}
                 keyExtractor={(item, index) => item + index}
-                renderItem={({ item }) => <Item title={item} />}
+                renderItem={({ item }) => <Item title={item} navigation={navigation} />}
                 renderSectionHeader={({ section: { title } }) => (
-                <Text style={styles.header}>{title}</Text>
+                    <Text style={styles.header}>{title}</Text>
                 )}
             />
         </SafeAreaView>
