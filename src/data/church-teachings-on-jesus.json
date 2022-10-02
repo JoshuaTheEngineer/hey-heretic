@@ -1,26 +1,26 @@
 {
     "2nd Person of the Trinity" : {
-        "meaning": "2nd Person of the Trinity",
+        "belief": "2nd Person of the Trinity",
         "church": "n/a"
     }, 
     "Fully Divine Nature" : {
-        "meaning": "Fully Divine Nature (Son of God)",
+        "belief": "Fully Divine Nature (Son of God)",
         "church": "n/a"
     },
     "Fully Human Nature" : {
-        "meaning": "Fully Human Nature (Son of Mary)",
+        "belief": "Fully Human Nature (Son of Mary)",
         "church": "n/a"
     },
     "The Messiah" : {
-        "meaning": "Christ or Messiah (Son of David)",
+        "belief": "Christ or Messiah (Son of David)",
         "church": "n/a"
     },
     "Rose from the dead" : {
-        "meaning": "Rose from the dead",
+        "belief": "Rose from the dead",
         "church": "n/a"
     },
     "Seated at the right hand of the Father" : {
-        "meaning": "Seated at the right hand of the Father",
+        "belief": "Seated at the right hand of the Father",
         "church": "n/a"
     }
 }

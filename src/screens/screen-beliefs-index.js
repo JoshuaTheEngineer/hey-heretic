@@ -21,9 +21,9 @@ const Item = ({ title, navigation }) => {
           title={title}
           onPress={() => {
             if (HERESIES[title]) {
-                return navigation.navigate('Heresy', { meaning: HERESIES[title]["meaning"], church: HERESIES[title]["church"] })
+                return navigation.navigate('Heresy', { meaning: HERESIES[title]["belief"], church: HERESIES[title]["church"] })
             } else {
-                return navigation.navigate('Church', { meaning: CHURCH[title]["meaning"], church: CHURCH[title]["church"] })
+                return navigation.navigate('Church', { meaning: CHURCH[title]["belief"], church: CHURCH[title]["church"] })
             }
           }}
         />
